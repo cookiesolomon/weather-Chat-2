@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <title>weather 2</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <h1>Weather Chat</h1>
+                <div class="input-group">
+                    <input type="text" class="form-control city-name" placeholder="Enter City" aria-describedby="basic-addon2">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary get-weather" type="button">Get Temp</button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="display-weather"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
+        <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="handlebars/dist/handlebars.min.js"></script>
+
+        <script id="weather-template" type="text/x-handlebars-template">
+           {{#each cityWeather}}
+            <div class="city-listing">
+                <h2>{{city}}</h2>  
+                <button class="trash"><i class="fa fa-trash"></i></button>         
+                <p>{{tempCelc}}&#8451/{{tempFar}}&#8457; on {{time}}</p> 
+                <p>Comments about the weather in {{city}}</p>  
+                <div class="display-comments"></div>
+                <div class="input-group comment-elements"> 
+                    <input type="text" class="form-control comment-input" placeholder="comment about the weather in {{city}}" aria-describedby="basic-addon2">
+                    <span class="input-group-btn"> 
+                    <button class="btn btn-success leave-comment" type="button">Comment</button></span></div>
+           </div>
+           {{/each}}
+        </script>
+
+
+
+        <script src="script.js"></script>
+
+
+</body>
+
+</html>
