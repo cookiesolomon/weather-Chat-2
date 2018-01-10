@@ -24,15 +24,11 @@
                     </span>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-10">
                     <div class="display-weather"></div>
-
                 </div>
-
             </div>
-
         </div>
 
         <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
@@ -41,12 +37,12 @@
 
         <script id="weather-template" type="text/x-handlebars-template">
            {{#each cityWeather}}
-            <div class="city-listing">
+            <div class="city-listing" data-id = "{{id}}">
                 <h2>{{city}}</h2>  
                 <button class="trash"><i class="fa fa-trash"></i></button>         
                 <p>{{tempCelc}}&#8451/{{tempFar}}&#8457; on {{time}}</p> 
                 <p>Comments about the weather in {{city}}</p>  
-                <div class="display-comments"></div>
+                <div class="display-comments">{{comments}}</div>
                 <div class="input-group comment-elements"> 
                     <input type="text" class="form-control comment-input" placeholder="comment about the weather in {{city}}" aria-describedby="basic-addon2">
                     <span class="input-group-btn"> 

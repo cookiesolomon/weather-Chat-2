@@ -9,6 +9,7 @@ var getFromLocalStorage = function () {
 
 
 var weather = [];
+var id = 0;
 
 var fetch = function () {
     var input = $('.city-name').val();
@@ -18,15 +19,16 @@ var fetch = function () {
         success: function (data) {
 
             var cities = {
-
+                id: id,
                 city: data.location.name ? data.location.name : "info unavailable",
                 tempCelc: data.current.temp_c ? data.current.temp_c : "info unavailable",
                 tempFar: data.current.temp_f ? data.current.temp_f : "info unavailable",
                 time: data.location.localtime ? data.location.localtime : "info unavailable",
                 comments: []
-            }
+            };
 
             weather.push(cities);
+            id++;
             saveToLocalStorage();
             renderWeather();
         },
@@ -34,8 +36,6 @@ var fetch = function () {
             console.log(textStatus);
             $('.display-weather').empty();
             $('.display-weather').append("please enter a valid city name");
-
-
         }
     });
 };
@@ -51,21 +51,8 @@ function renderWeather() {
     var newHTML = template(weatherData);
     $('.display-weather').append(newHTML);
 
-
+    saveToLocalStorage();
 }
-
-
-
-//function add comment to array
-
-//function render comment
-
-
-
-
-
-
-
 
 //CLICK FUNCTIONS 
 
@@ -77,8 +64,6 @@ $('.get-weather').on('click', function () {
     $('.city-name').val("");
 });
 
-
-
 //click to delete post 
 
 $('.display-weather').on('click', '.trash', function () {
@@ -86,8 +71,20 @@ $('.display-weather').on('click', '.trash', function () {
     console.log(index);
     weather.splice(index, 1);
     $(this).closest('.city-listing').remove();
- 
- });
 
- //click to make a comment--
- //should be added as second param of handler call back bec its not available on page load
+});
+
+//click to make a comment--
+
+$('.display-weather').on('click', '.leave-comment', function () {
+    var comment = $(this).parents('.comment-elements').find('.comment-input').val();
+    console.log(comment);
+    for (var i = 0; i < weather.length; i++) {
+        if ($(this).parents('.city-listing').data().id === weather[i].id) {
+            weather[i].comments.push(comment);
+        }
+    }
+
+    renderWeather();
+
+});
