@@ -42,7 +42,11 @@
                 <button class="trash"><i class="fa fa-trash"></i></button>         
                 <p>{{tempCelc}}&#8451/{{tempFar}}&#8457; on {{time}}</p> 
                 <p>Comments about the weather in {{city}}</p>  
-                <div class="display-comments">{{comments}}</div>
+                <div class="display-comments">
+                    {{#each comments}}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
                 <div class="input-group comment-elements"> 
                     <input type="text" class="form-control comment-input" placeholder="comment about the weather in {{city}}" aria-describedby="basic-addon2">
                     <span class="input-group-btn"> 
