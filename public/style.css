@@ -1,47 +1,57 @@
 
 * {
     color: rgb(44, 42, 42);
-  
+    box-sizing: border-box;
 
 }
 body {
-    background-color: rgb(157, 184, 167);
+    background-image: url("storm.jpg");
 }
+
 .display-weather {
     font-family: Garamond, Times, serif;
     border: rgb(240, 230, 230) solid 1px;
-    box-shadow: 10px 5px 5px gray;
-    margin-top: 10px;
-    background-color: rgb(245, 236, 236)
+    border-radius: 5px;
+    background-color: rgb(245, 236, 236);
+    /* position: relative;
+    left: 90px; */
+    text-align: center;
+    margin-top: 15px;
+
 }
 .display-weather h2 {
-
-padding-left: 20px;
+    font-size: 30px;
+    font-weight: bold;
 
 }
 
 .display-weather p {
-    padding-left: 20px;
+   
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(16, 16, 75);
 
 }
-.city-title {
-    
-    font-weight: bold;
-    font-size: 24px;
-    color: rgb(16, 16, 75);
+
+.main-heading {
+
+color: rgb(223, 215, 215);
+font-size: 100px;
+font-family: 'Roboto Slab', serif;
+text-shadow: 2px 2px 4px #000000;
+text-align: center;
 }
-.temp-info{
-    font-weight: bold;
-    font-size: 18px;
-    color: rgb(16, 16, 75);
+
+.trash {
+text-align: right;
 }
-.show-comments {
-    font-size: 16px;
+
+.commment-heading {
+
+ text-decoration: underline;
 }
-.com {
-    font-size: 18px;
-    padding-top: 15px;
+.display-comments {
+
+ color: rgb(17, 17, 70);
 }
-hr{
-    color: black;
-}
+
